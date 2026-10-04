@@ -1,0 +1,13 @@
+/* Your normal button styling */
+#submitBtn {
+    background-color: #2ea44f; /* Replace with your original button color */
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+/* ⬇️ CHANGES THE COLOUR THE EXACT MILLISECOND THE BUTTON IS PRESSED */
+#submitBtn:active, 
+#submitBtn:focus {
+    background-color: #95a5a6 !important; /* Dims to your preferred grey instantly */
+}

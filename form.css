@@ -1,0 +1,59 @@
+/* Container Box Enhancement */
+#contactForm {
+    background-color: #1e2530; /* Elevates the form off a pure black background */
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #2f3b4e; /* Subtle container outline */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Base Form Inputs Layout */
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm textarea {
+    background-color: #121820 !important; /* Deep, high-contrast field color */
+    color: #ffffff !important; /* Crisp white text inside inputs */
+    border: 2px solid #3f4e66 !important; /* Highly visible default border line */
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+}
+
+/* Placeholder text optimization (Stops it from looking faint/invisible) */
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+    color: #7a8ba3 !important;
+    opacity: 1;
+}
+
+/* 🌟 THE ACCENT GLOW ACTION (Triggers instantly when a user clicks a field) */
+#contactForm input[type="text"]:focus,
+#contactForm input[type="email"]:focus,
+#contactForm textarea:focus {
+    outline: none !important;
+    border-color: #007bff !important; /* Dynamic blue border focus state */
+    background-color: #141d2b !important; /* Changes inner shade slightly */
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.25) !important; /* Radiant neon drop shadow glow */
+}
+
+/* Labels configuration */
+#contactForm label {
+    display: block;
+    color: #e2e8f0 !important; /* Soft white/cream for readability */
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* GDPR Consent Links Tuning */
+#contactForm label a {
+    color: #38bdf8 !important; /* Electric sky blue for dark mode visibility */
+    text-decoration: underline;
+}
+
+/* Character Counter Text visibility upgrade */
+#charCount {
+    color: #94a3b8 !important; /* Distinct light slate grey string */
+}

@@ -1,0 +1,29 @@
+/* The actual spinner ring. */
+.spinner {
+    display: none; /* Hidden by default */
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ffffff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    margin-left: 10px;
+    animation: rotation 1s linear infinite;
+    vertical-align: middle;
+}
+
+/* The animation logic */
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ⬇️ NEW RULE: Force the spinner to display when the button is disabled */
+button:disabled .spinner {
+    display: inline-block;
+}
+
+/* Dim the button when it's processing */
+button:disabled {
+    background-color: #95a5a6 !important;
+    cursor: not-allowed;
+}
