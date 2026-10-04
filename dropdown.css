@@ -1,0 +1,193 @@
+/* Reset basic margins for a clean start */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Push website content down so the fixed navbar doesn't cover it */
+.content {
+  padding-top: 70px; 
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Core Navbar Styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Pushes logo left, links right */
+  align-items: center;
+  padding: 0 20px;
+  z-index: 9999;
+}
+
+/* Left Side Logo container alignment */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Keeps the text and the scales image perfectly side-by-side and centered */
+.nav-logo a {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Creates a clean, elegant spacing between text and the image */
+  text-decoration: none;
+}
+
+/* Styles your text to look bold, dark red, and matched to the navbar size */
+.nav-logo .logo-text {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Logo Image auto-sizing to fit nicely inside the 50px navbar */
+.logo-image {
+  height: 45px; /* Slightly reduced height to match the text height perfectly */
+  width: auto;  /* Keeps your image proportions perfectly crisp */
+  display: block;
+}
+
+/* Right Side Links Layout */
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+}
+
+/* Shared styles for normal links and the dropdown button */
+.nav-links a, 
+.dropdown .dropbtn {
+  display: inline-block;
+  color: #8B0000;
+  text-align: center;
+  padding: 0 20px;
+  text-decoration: none;
+  font-size: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 50px;       
+  line-height: 50px;  
+
+    /* FIXED: Cross-platform explicit font weights for iOS Safari */
+  font-weight: 800 !important; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background hover color for right-side items */
+.nav-links a:hover, 
+.dropdown:hover .dropbtn {
+  background-color: #E7E7E7;
+}
+
+/* Container for Dropdown */
+.dropdown {
+  position: relative;
+  height: 100%;
+}
+
+/* Dropdown Hidden Box */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 50px; /* Sits directly below the 50px navbar */
+  right: 0;  /* aligns the box to the right edge so it doesn't clip off-screen */
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10000;
+}
+
+/* Individual links inside the dropdown drawer */
+.dropdown-content a {
+  color: #333333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  height: auto;
+  line-height: normal; /* Resets the navbar vertical centering */
+}
+
+/* Hover style inside the dropdown menu */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  color: #8B0000;
+}
+
+/* Show the dropdown menu when hovering over the container */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE PATCH FOR IPHONE AND SMALL SCREENS
+   ========================================================================== */
+@media screen and (max-width: 620px) {
+  /* Reduce navbar container padding */
+  .navbar {
+    padding: 0 8px;
+  }
+
+  /* Shrink the logo text so it takes up less space */
+  .nav-logo .logo-text {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  /* Scale the scales image down smoothly to match */
+  .logo-image {
+    height: 30px;
+  }
+	  /* Tighten spacing and force bold weights inside the mobile media query loop */
+  .nav-links a, 
+  .dropdown .dropbtn {
+    padding: 0 4px !important; /* Reduces horizontal link padding to prevent overflow lines */
+    font-size: 12px !important; /* Decreases text scale slightly for narrow screens */
+    font-weight: 700 !important; /* Forces iPhone Safari engine to compute explicit weight values */
+  }
+
+  /* Increase dropdown menu width slightly on mobile so long text fits */
+  .dropdown-content {
+    min-width: 175px;
+  }
+}
+/* Toggles dropdown visibility via JavaScript touch tracking */
+.dropdown.active .dropdown-content {
+  display: block;
+}
+/* MD ADDED BELOW
+
+  /* Prevents elements from sticking hard to the glass edge of the phone */
+  .nav-links {
+    padding-right: 4px;
+  }
+
+  /* Force the first dropdown drawer to align left, so it doesn't collide with the second one */
+  .dropdown:not(.menu-right) .dropdown-content {
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  /* Force the absolute outermost right dropdown to stick flush with the browser container */
+  .dropdown.menu-right .dropdown-content {
+    right: 0 !important;
+    left: auto !important;
+  }
